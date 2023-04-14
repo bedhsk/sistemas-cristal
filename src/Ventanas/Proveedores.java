@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Proveedores extends javax.swing.JFrame {
 
     /**
-     * Creates new form Clientes
+     * Creates new form Proveedores
      */
     public Proveedores() {
         initComponents();
@@ -117,7 +117,7 @@ public class Proveedores extends javax.swing.JFrame {
         getContentPane().add(jButtonIniciar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 90, 30));
 
         jLabelFondoVerde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoVerde.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondoVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 400, 410));
+        getContentPane().add(jLabelFondoVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 410, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -174,7 +174,6 @@ public class Proveedores extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Proveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

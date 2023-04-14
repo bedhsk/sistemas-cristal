@@ -32,8 +32,6 @@ public class Pedidos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButtonIniciar = new javax.swing.JButton();
-        jButtonIniciar1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -54,6 +52,8 @@ public class Pedidos extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButtonIniciar = new javax.swing.JButton();
+        jButtonIniciar1 = new javax.swing.JButton();
         jLabelFondoVerde = new javax.swing.JLabel();
         jLabelFondoVerde2 = new javax.swing.JLabel();
         jLabelFondoVerde1 = new javax.swing.JLabel();
@@ -89,28 +89,6 @@ public class Pedidos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 890, 100));
-
-        jButtonIniciar.setBackground(new java.awt.Color(0, 0, 255));
-        jButtonIniciar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonIniciar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciar.setText("Guardar");
-        jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 720, -1, -1));
-
-        jButtonIniciar1.setBackground(new java.awt.Color(255, 0, 0));
-        jButtonIniciar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonIniciar1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciar1.setText("Cancelar");
-        jButtonIniciar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonIniciar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 720, 90, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Busto: ");
@@ -178,6 +156,28 @@ public class Pedidos extends javax.swing.JFrame {
         jButton1.setText("Confirmar");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, -1, -1));
 
+        jButtonIniciar.setBackground(new java.awt.Color(0, 0, 255));
+        jButtonIniciar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonIniciar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIniciar.setText("Guardar");
+        jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 720, -1, -1));
+
+        jButtonIniciar1.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonIniciar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonIniciar1.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIniciar1.setText("Cancelar");
+        jButtonIniciar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonIniciar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 720, 90, 30));
+
         jLabelFondoVerde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoVerde.jpg"))); // NOI18N
         getContentPane().add(jLabelFondoVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 320, 370));
 
@@ -194,6 +194,14 @@ public class Pedidos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
         JOptionPane.showMessageDialog(null, "Los datos se guardaron correctamente");
     }//GEN-LAST:event_jButtonIniciarActionPerformed
@@ -204,14 +212,6 @@ public class Pedidos extends javax.swing.JFrame {
         this.setVisible(false);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonIniciar1ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments

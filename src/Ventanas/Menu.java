@@ -14,11 +14,13 @@ import javax.swing.JLabel;
  * @author jsant
  */
 public class Menu extends javax.swing.JFrame {
-
     
     private ImageIcon imagen;
     private Icon Icono;
-    
+
+    /**
+     * Creates new form Menu
+     */
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -28,7 +30,6 @@ public class Menu extends javax.swing.JFrame {
         Ajustar(jLabelClientes, "src/Imagenes/clasificacion.png");
         Ajustar(jLabelConfiguracion, "src/Imagenes/configuracion.png");
         Ajustar(jLabelProveedores, "src/Imagenes/mensajero.png");
-        
     }
 
     /**
@@ -162,16 +163,16 @@ public class Menu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButtonIniciar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciar1ActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_jButtonIniciar1ActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         Configuración newframe = new Configuración();
         newframe.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButtonIniciar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciar1ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonIniciar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,8 +209,7 @@ public class Menu extends javax.swing.JFrame {
         });
     }
     
-    
-     private void Ajustar(JLabel lbl, String ruta) {
+    private void Ajustar(JLabel lbl, String ruta) {
 
         this.imagen = new ImageIcon(ruta);
         this.Icono = new ImageIcon(this.imagen.getImage().getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_DEFAULT));
