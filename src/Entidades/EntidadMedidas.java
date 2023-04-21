@@ -31,6 +31,18 @@ public class EntidadMedidas {
         this.largoManga = largoManga;
         this.bocaManga = bocaManga;
     }
+    
+    public EntidadMedidas() {
+        this.id = 0;
+        this.busto = 0;
+        this.cintura = 0;
+        this.talle = 0;
+        this.largoFalda = 0;
+        this.cadera = 0;
+        this.espalda = 0;
+        this.largoManga = 0;
+        this.bocaManga = 0;
+    }
 
     public int getId() {
         return id;

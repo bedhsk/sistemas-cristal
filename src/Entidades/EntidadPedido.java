@@ -34,6 +34,19 @@ public class EntidadPedido {
         this.fechaTallado2 = fechaTallado2;
         this.medidas = new EntidadMedidas(id, busto, cintura, talle, largoFalda, cadera, espalda, largoManga, bocaManga);
     }
+    
+    public EntidadPedido() {
+        this.id = 0;
+        this.descripcion = "";
+        this.fechaEntrega = "";
+        this.fechaInicial = "";
+        this.cliente = "";
+        this.total = 0;
+        this.accesorios = "";
+        this.fechaTallado = "";
+        this.fechaTallado2 = "";
+        this.medidas = new EntidadMedidas();
+    }
 
     public int getId() {
         return id;
