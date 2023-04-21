@@ -4,6 +4,9 @@
  */
 package Ventanas;
 
+import Entidades.EntidadMedidas;
+import Entidades.EntidadPedido;
+import clases.Conexion;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,11 +14,13 @@ import javax.swing.JOptionPane;
  * @author jsant
  */
 public class Pedidos extends javax.swing.JFrame {
-
+    private EntidadPedido pedido;
+    private Conexion conexion = new Conexion();
     /**
      * Creates new form Pedidos
      */
     public Pedidos() {
+        
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -32,7 +37,7 @@ public class Pedidos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabelBusto = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDescripcion = new javax.swing.JTextArea();
         jLabelCintura = new javax.swing.JLabel();
         jLabelTalle = new javax.swing.JLabel();
         jLabelLargoFalda = new javax.swing.JLabel();
@@ -41,33 +46,33 @@ public class Pedidos extends javax.swing.JFrame {
         jLabelBocaManga = new javax.swing.JLabel();
         jLabelLargoManga = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        txtEspalda = new javax.swing.JTextField();
+        txtBocaM = new javax.swing.JTextField();
+        txtLargoM = new javax.swing.JTextField();
+        txtCadera = new javax.swing.JTextField();
+        txtLargoF = new javax.swing.JTextField();
+        txtTalle = new javax.swing.JTextField();
+        txtCintura = new javax.swing.JTextField();
+        txtBusto = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButtonIniciar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jTextFieldFecha1 = new javax.swing.JTextField();
+        txtFechaI = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextFieldFecha2 = new javax.swing.JTextField();
+        txtFechaE = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextFieldTallado1 = new javax.swing.JTextField();
+        txtTallado1 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jTextFieldTallado2 = new javax.swing.JTextField();
+        txtTallado2 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextFieldCliente = new javax.swing.JTextField();
+        txtCliente = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextFieldTotal = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
         jButtonHistorial = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaAccesorio = new javax.swing.JTextArea();
+        txtAccesorios = new javax.swing.JTextArea();
         jLabelFondoVerde = new javax.swing.JLabel();
         jLabelFondoVerde2 = new javax.swing.JLabel();
         jLabelFondoVerde1 = new javax.swing.JLabel();
@@ -85,9 +90,9 @@ public class Pedidos extends javax.swing.JFrame {
         jLabelBusto.setText("Busto: ");
         getContentPane().add(jLabelBusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setRows(5);
+        jScrollPane2.setViewportView(txtDescripcion);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 570, 90));
 
@@ -122,26 +127,26 @@ public class Pedidos extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setText("Descripción: ");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 140, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 140, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 140, -1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 140, -1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 140, -1));
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 140, -1));
+        getContentPane().add(txtEspalda, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 140, -1));
+        getContentPane().add(txtBocaM, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 140, -1));
+        getContentPane().add(txtLargoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 140, -1));
+        getContentPane().add(txtCadera, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 140, -1));
+        getContentPane().add(txtLargoF, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 140, -1));
+        getContentPane().add(txtTalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 140, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtCintura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtCinturaActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 140, -1));
+        getContentPane().add(txtCintura, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 140, -1));
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        txtBusto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                txtBustoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 140, -1));
+        getContentPane().add(txtBusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 140, -1));
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Confirmar");
@@ -173,33 +178,33 @@ public class Pedidos extends javax.swing.JFrame {
         jLabel14.setText("Fecha Inicial");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, -1, -1));
 
-        jTextFieldFecha1.addActionListener(new java.awt.event.ActionListener() {
+        txtFechaI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFecha1ActionPerformed(evt);
+                txtFechaIActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 140, -1));
+        getContentPane().add(txtFechaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 140, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel15.setText("Fecha Entrega");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 560, -1, -1));
 
-        jTextFieldFecha2.addActionListener(new java.awt.event.ActionListener() {
+        txtFechaE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFecha2ActionPerformed(evt);
+                txtFechaEActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldFecha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 140, -1));
+        getContentPane().add(txtFechaE, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 140, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel16.setText("Tallado 1");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 610, -1, -1));
-        getContentPane().add(jTextFieldTallado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, 140, -1));
+        getContentPane().add(txtTallado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, 140, -1));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel17.setText("Tallado 2");
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 660, -1, -1));
-        getContentPane().add(jTextFieldTallado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 660, 140, -1));
+        getContentPane().add(txtTallado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 660, 140, -1));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel18.setText("Accesorios");
@@ -208,12 +213,12 @@ public class Pedidos extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel20.setText("Cliente");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 610, -1, -1));
-        getContentPane().add(jTextFieldCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 610, 140, -1));
+        getContentPane().add(txtCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 610, 140, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel21.setText("Total");
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 660, -1, -1));
-        getContentPane().add(jTextFieldTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 660, 140, -1));
+        getContentPane().add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 660, 140, -1));
 
         jButtonHistorial.setBackground(new java.awt.Color(0, 0, 0));
         jButtonHistorial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -226,9 +231,9 @@ public class Pedidos extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 750, 90, -1));
 
-        jTextAreaAccesorio.setColumns(20);
-        jTextAreaAccesorio.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaAccesorio);
+        txtAccesorios.setColumns(20);
+        txtAccesorios.setRows(5);
+        jScrollPane1.setViewportView(txtAccesorios);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 500, -1, -1));
 
@@ -248,15 +253,33 @@ public class Pedidos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtCinturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCinturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtCinturaActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void txtBustoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBustoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_txtBustoActionPerformed
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
+        pedido = new EntidadPedido();
+        pedido.setDescripcion(txtDescripcion.getText());
+        pedido.setFechaEntrega(txtFechaE.getText());
+        pedido.setFechaInicial(txtFechaI.getText());
+        pedido.setCliente(txtCliente.getText());
+        pedido.setTotal(Integer.parseInt(txtTotal.getText()));
+        pedido.setAccesorios(txtAccesorios.getText());
+        pedido.setFechaTallado(txtTallado1.getText());
+        pedido.setFechaTallado2(txtTallado2.getText());
+        pedido.getMedidas().setBusto(Float.parseFloat(txtBusto.getText()));
+        pedido.getMedidas().setCintura(Float.parseFloat(txtCintura.getText()));
+        pedido.getMedidas().setTalle(Float.parseFloat(txtTalle.getText()));
+        pedido.getMedidas().setLargoFalda(Float.parseFloat(txtLargoF.getText()));
+        pedido.getMedidas().setCadera(Float.parseFloat(txtCadera.getText()));
+        pedido.getMedidas().setEspalda(Float.parseFloat(txtEspalda.getText()));
+        pedido.getMedidas().setLargoManga(Float.parseFloat(txtLargoM.getText()));
+        pedido.getMedidas().setBocaManga(Float.parseFloat(txtBocaM.getText()));
+        pedido.Create(conexion);
         JOptionPane.showMessageDialog(null, "Los datos se guardaron correctamente");
     }//GEN-LAST:event_jButtonIniciarActionPerformed
 
@@ -266,13 +289,13 @@ public class Pedidos extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
-    private void jTextFieldFecha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFecha1ActionPerformed
+    private void txtFechaIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFecha1ActionPerformed
+    }//GEN-LAST:event_txtFechaIActionPerformed
 
-    private void jTextFieldFecha2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFecha2ActionPerformed
+    private void txtFechaEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaEActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFecha2ActionPerformed
+    }//GEN-LAST:event_txtFechaEActionPerformed
 
     private void jButtonHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHistorialActionPerformed
         PedidosVer newframe = new PedidosVer();
@@ -342,21 +365,21 @@ public class Pedidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTalle;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextAreaAccesorio;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextFieldCliente;
-    private javax.swing.JTextField jTextFieldFecha1;
-    private javax.swing.JTextField jTextFieldFecha2;
-    private javax.swing.JTextField jTextFieldTallado1;
-    private javax.swing.JTextField jTextFieldTallado2;
-    private javax.swing.JTextField jTextFieldTotal;
+    private javax.swing.JTextArea txtAccesorios;
+    private javax.swing.JTextField txtBocaM;
+    private javax.swing.JTextField txtBusto;
+    private javax.swing.JTextField txtCadera;
+    private javax.swing.JTextField txtCintura;
+    private javax.swing.JTextField txtCliente;
+    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JTextField txtEspalda;
+    private javax.swing.JTextField txtFechaE;
+    private javax.swing.JTextField txtFechaI;
+    private javax.swing.JTextField txtLargoF;
+    private javax.swing.JTextField txtLargoM;
+    private javax.swing.JTextField txtTallado1;
+    private javax.swing.JTextField txtTallado2;
+    private javax.swing.JTextField txtTalle;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

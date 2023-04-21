@@ -31,29 +31,90 @@ public class EntidadMedidas {
         this.largoManga = largoManga;
         this.bocaManga = bocaManga;
     }
-
-    public boolean create(Conexion c) {
-        try {
-            String sql = "INSERT INTO venta (id, busto, cintura, talle, largoFalda, cadera, espalda, largoManga, bocaManga) values (?,?,?,?,?,?)";
-            PreparedStatement ps = c.conectar().prepareStatement(sql);
-            ps.setInt(1, this.id);
-            ps.setFloat(2, this.busto);
-            ps.setFloat(3, this.cintura);
-            ps.setFloat(4, this.talle);
-            ps.setFloat(5, this.largoFalda);
-            ps.setFloat(6, this.cadera);
-            ps.setFloat(7, this.espalda);
-            ps.setFloat(8, this.largoManga);
-            ps.setFloat(9, this.bocaManga);
-
-            ps.execute();
-            ps.close();
-            ps = null;
-            c.desconectar();
-            return true;
-        } catch (SQLException ex) {
-            System.out.println("Error al insertar la venta: " + ex);
-            return false;
-        }
+    
+    public EntidadMedidas() {
+        this.id = 0;
+        this.busto = 0;
+        this.cintura = 0;
+        this.talle = 0;
+        this.largoFalda = 0;
+        this.cadera = 0;
+        this.espalda = 0;
+        this.largoManga = 0;
+        this.bocaManga = 0;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public float getBusto() {
+        return busto;
+    }
+
+    public float getCintura() {
+        return cintura;
+    }
+
+    public float getTalle() {
+        return talle;
+    }
+
+    public float getLargoFalda() {
+        return largoFalda;
+    }
+
+    public float getCadera() {
+        return cadera;
+    }
+
+    public float getEspalda() {
+        return espalda;
+    }
+
+    public float getLargoManga() {
+        return largoManga;
+    }
+
+    public float getBocaManga() {
+        return bocaManga;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setBusto(float busto) {
+        this.busto = busto;
+    }
+
+    public void setCintura(float cintura) {
+        this.cintura = cintura;
+    }
+
+    public void setTalle(float talle) {
+        this.talle = talle;
+    }
+
+    public void setLargoFalda(float largoFalda) {
+        this.largoFalda = largoFalda;
+    }
+
+    public void setCadera(float cadera) {
+        this.cadera = cadera;
+    }
+
+    public void setEspalda(float espalda) {
+        this.espalda = espalda;
+    }
+
+    public void setLargoManga(float largoManga) {
+        this.largoManga = largoManga;
+    }
+
+    public void setBocaManga(float bocaManga) {
+        this.bocaManga = bocaManga;
+    }
+    
+    
 }
