@@ -30,18 +30,16 @@ public class Pedidos extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelBusto = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jLabelCintura = new javax.swing.JLabel();
+        jLabelTalle = new javax.swing.JLabel();
+        jLabelLargoFalda = new javax.swing.JLabel();
+        jLabelEspalda = new javax.swing.JLabel();
+        jLabelCadera = new javax.swing.JLabel();
+        jLabelBocaManga = new javax.swing.JLabel();
+        jLabelLargoManga = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -53,7 +51,23 @@ public class Pedidos extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButtonIniciar = new javax.swing.JButton();
-        jButtonIniciar1 = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jTextFieldFecha1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextFieldFecha2 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextFieldTallado1 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jTextFieldTallado2 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jTextFieldCliente = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jTextFieldTotal = new javax.swing.JTextField();
+        jButtonHistorial = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaAccesorio = new javax.swing.JTextArea();
         jLabelFondoVerde = new javax.swing.JLabel();
         jLabelFondoVerde2 = new javax.swing.JLabel();
         jLabelFondoVerde1 = new javax.swing.JLabel();
@@ -67,94 +81,71 @@ public class Pedidos extends javax.swing.JFrame {
         jLabel2.setText("Registro Pedido");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 370, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Cliente", "Fecha inicial", "Fecha de Entrega", "Tallado 1", "Tallado 2", "Accesorios", "Total"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Float.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 890, 100));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Busto: ");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
+        jLabelBusto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelBusto.setText("Busto: ");
+        getContentPane().add(jLabelBusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 570, 140));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 570, 90));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("Cintura: ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
+        jLabelCintura.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelCintura.setText("Cintura: ");
+        getContentPane().add(jLabelCintura, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setText("Talle: ");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, -1, -1));
+        jLabelTalle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelTalle.setText("Talle: ");
+        getContentPane().add(jLabelTalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText("Largo Falda: ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, -1, -1));
+        jLabelLargoFalda.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelLargoFalda.setText("Largo Falda: ");
+        getContentPane().add(jLabelLargoFalda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setText("Espalda: ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
+        jLabelEspalda.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelEspalda.setText("Espalda: ");
+        getContentPane().add(jLabelEspalda, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel10.setText("Cadera: ");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, -1, -1));
+        jLabelCadera.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelCadera.setText("Cadera: ");
+        getContentPane().add(jLabelCadera, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setText("Boca Manga: ");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, -1, -1));
+        jLabelBocaManga.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelBocaManga.setText("Boca Manga: ");
+        getContentPane().add(jLabelBocaManga, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setText("Largo Manga: ");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, -1, -1));
+        jLabelLargoManga.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelLargoManga.setText("Largo Manga: ");
+        getContentPane().add(jLabelLargoManga, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setText("Descripción: ");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 140, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 140, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 140, -1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 140, -1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 140, -1));
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 140, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 140, -1));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 140, -1));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 140, -1));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 140, -1));
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 140, -1));
+        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 140, -1));
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 140, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 140, -1));
 
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField8ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 140, -1));
+        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 140, -1));
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Confirmar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 330, -1, -1));
 
         jButtonIniciar.setBackground(new java.awt.Color(0, 0, 255));
         jButtonIniciar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -165,21 +156,84 @@ public class Pedidos extends javax.swing.JFrame {
                 jButtonIniciarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 720, -1, -1));
+        getContentPane().add(jButtonIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 750, -1, -1));
 
-        jButtonIniciar1.setBackground(new java.awt.Color(255, 0, 0));
-        jButtonIniciar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonIniciar1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciar1.setText("Cancelar");
-        jButtonIniciar1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCancelar.setBackground(new java.awt.Color(255, 0, 0));
+        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciar1ActionPerformed(evt);
+                jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonIniciar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 720, 90, 30));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 750, 90, 30));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setText("Fecha Inicial");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, -1, -1));
+
+        jTextFieldFecha1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFecha1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldFecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 140, -1));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setText("Fecha Entrega");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 560, -1, -1));
+
+        jTextFieldFecha2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFecha2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldFecha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 140, -1));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel16.setText("Tallado 1");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 610, -1, -1));
+        getContentPane().add(jTextFieldTallado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, 140, -1));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel17.setText("Tallado 2");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 660, -1, -1));
+        getContentPane().add(jTextFieldTallado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 660, 140, -1));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel18.setText("Accesorios");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 510, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel20.setText("Cliente");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 610, -1, -1));
+        getContentPane().add(jTextFieldCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 610, 140, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel21.setText("Total");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 660, -1, -1));
+        getContentPane().add(jTextFieldTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 660, 140, -1));
+
+        jButtonHistorial.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonHistorial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonHistorial.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonHistorial.setText("Historial");
+        jButtonHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHistorialActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 750, 90, -1));
+
+        jTextAreaAccesorio.setColumns(20);
+        jTextAreaAccesorio.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaAccesorio);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 500, -1, -1));
 
         jLabelFondoVerde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoVerde.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondoVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 320, 370));
+        getContentPane().add(jLabelFondoVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 320, 410));
 
         jLabelFondoVerde2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoVerde.jpg"))); // NOI18N
         jLabelFondoVerde2.setText("jLabel1");
@@ -189,7 +243,7 @@ public class Pedidos extends javax.swing.JFrame {
         getContentPane().add(jLabelFondoVerde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 410));
 
         jLabelFondoVerde4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoVerde.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondoVerde4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 610, 370));
+        getContentPane().add(jLabelFondoVerde4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 610, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -206,12 +260,24 @@ public class Pedidos extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Los datos se guardaron correctamente");
     }//GEN-LAST:event_jButtonIniciarActionPerformed
 
-    private void jButtonIniciar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciar1ActionPerformed
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         Menu newframe = new Menu();
         newframe.setVisible(true);
         this.setVisible(false);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButtonIniciar1ActionPerformed
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jTextFieldFecha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFecha1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFecha1ActionPerformed
+
+    private void jTextFieldFecha2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFecha2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFecha2ActionPerformed
+
+    private void jButtonHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHistorialActionPerformed
+        PedidosVer newframe = new PedidosVer();
+        newframe.setVisible(true);
+    }//GEN-LAST:event_jButtonHistorialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,26 +316,34 @@ public class Pedidos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonHistorial;
     private javax.swing.JButton jButtonIniciar;
-    private javax.swing.JButton jButtonIniciar1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabelBocaManga;
+    private javax.swing.JLabel jLabelBusto;
+    private javax.swing.JLabel jLabelCadera;
+    private javax.swing.JLabel jLabelCintura;
+    private javax.swing.JLabel jLabelEspalda;
     private javax.swing.JLabel jLabelFondoVerde;
     private javax.swing.JLabel jLabelFondoVerde1;
     private javax.swing.JLabel jLabelFondoVerde2;
     private javax.swing.JLabel jLabelFondoVerde4;
+    private javax.swing.JLabel jLabelLargoFalda;
+    private javax.swing.JLabel jLabelLargoManga;
+    private javax.swing.JLabel jLabelTalle;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaAccesorio;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -278,5 +352,11 @@ public class Pedidos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextFieldCliente;
+    private javax.swing.JTextField jTextFieldFecha1;
+    private javax.swing.JTextField jTextFieldFecha2;
+    private javax.swing.JTextField jTextFieldTallado1;
+    private javax.swing.JTextField jTextFieldTallado2;
+    private javax.swing.JTextField jTextFieldTotal;
     // End of variables declaration//GEN-END:variables
 }
