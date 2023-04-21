@@ -1,13 +1,12 @@
 package Entidades;
+
 import clases.Conexion;
-import java.sql.*;  
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/**
- *
- * @author carlo
- */
+
 public class EntidadCliente {
+
     private String nombre;
     private String telefono;
     private String whatsapp;
@@ -19,7 +18,7 @@ public class EntidadCliente {
         this.whatsapp = whatsapp;
         this.correo = correo;
     }
-    
+
     public EntidadCliente() {
         this.nombre = "";
         this.telefono = "";
@@ -57,49 +56,5 @@ public class EntidadCliente {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-    
-    public boolean Create(Conexion c){
-        String sql = "INSERT INTO mydb.cliente (Nombre, Telefono, Whatsapp, Correo)";
-        try {
-            PreparedStatement ps = c.conectar().prepareStatement(sql);
-            ps.setString(1, this.nombre);
-            ps.setString(2, this.telefono);
-            ps.setString(3, this.whatsapp);
-            ps.setString(4, this.correo);
-            ps.execute();
-            ps.close();
-            ps = null;
-            System.out.println("Cliente " + this.nombre + " ingresado con exito.");
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(EntidadCliente.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Cliente " + this.nombre + " no ingresado");
-            return false;
-        }
-    }
-    
-    public boolean Create(Conexion c,String nombre, String telefono, String whatsapp, String correo){
-        String sql = "INSERT INTO mydb.cliente (Nombre, Telefono, Whatsapp, Correo)";
-        this.nombre = nombre;
-        this.telefono = telefono;
-        this.whatsapp = whatsapp;
-        this.correo = correo;
-        try {
-            PreparedStatement ps = c.conectar().prepareStatement(sql);
-            ps.setString(1, this.nombre);
-            ps.setString(2, this.telefono);
-            ps.setString(3, this.whatsapp);
-            ps.setString(4, this.correo);
-            ps.execute();
-            ps.close();
-            ps = null;
-            System.out.println("Cliente " + this.nombre + " ingresado con exito.");
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(EntidadCliente.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Cliente " + this.nombre + " no ingresado");
-            return false;
-        }
     }
 }

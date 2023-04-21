@@ -1,9 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Ventanas;
 
+import Entidades.*;
+import clases.Conexion;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,11 +13,14 @@ import javax.swing.JOptionPane;
  */
 public class Clientes extends javax.swing.JFrame {
 
+    daoCliente dao;
+    
     /**
      * Creates new form Clientes
      */
     public Clientes() {
         initComponents();
+        dao = new daoCliente();
         this.setLocationRelativeTo(null);
     }
 
@@ -34,10 +38,10 @@ public class Clientes extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldTel = new javax.swing.JTextField();
-        jTextFieldWhats = new javax.swing.JTextField();
-        jTextFieldCorreo = new javax.swing.JTextField();
-        jTextFieldNombre = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtWhatsapp = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jButtonEditar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
         jButtonGuardar = new javax.swing.JButton();
@@ -70,33 +74,33 @@ public class Clientes extends javax.swing.JFrame {
         jLabel5.setText("Nombre: ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        jTextFieldTel.addActionListener(new java.awt.event.ActionListener() {
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTelActionPerformed(evt);
+                txtTelefonoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 180, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 180, -1));
 
-        jTextFieldWhats.addActionListener(new java.awt.event.ActionListener() {
+        txtWhatsapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldWhatsActionPerformed(evt);
+                txtWhatsappActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldWhats, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 180, -1));
+        getContentPane().add(txtWhatsapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 180, -1));
 
-        jTextFieldCorreo.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCorreoActionPerformed(evt);
+                txtCorreoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 180, -1));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 180, -1));
 
-        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombreActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 180, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 180, -1));
 
         jButtonEditar.setBackground(new java.awt.Color(0, 0, 0));
         jButtonEditar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -112,7 +116,7 @@ public class Clientes extends javax.swing.JFrame {
         jButtonSalir.setBackground(new java.awt.Color(255, 0, 0));
         jButtonSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonSalir.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonSalir.setText("Cancelar");
+        jButtonSalir.setText("Salir");
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalirActionPerformed(evt);
@@ -170,21 +174,21 @@ public class Clientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelActionPerformed
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTelActionPerformed
+    }//GEN-LAST:event_txtTelefonoActionPerformed
 
-    private void jTextFieldWhatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldWhatsActionPerformed
+    private void txtWhatsappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWhatsappActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldWhatsActionPerformed
+    }//GEN-LAST:event_txtWhatsappActionPerformed
 
-    private void jTextFieldCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCorreoActionPerformed
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCorreoActionPerformed
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         
@@ -198,8 +202,20 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Los datos se guardaron correctamente");
+        EntidadCliente cliente;
+        
+        String nombre = txtNombre.getText();
+        String telefono= txtTelefono.getText();
+        String whatsapp = txtWhatsapp.getText();
+        String correo = txtCorreo.getText();
+        
+        cliente = new EntidadCliente(nombre, telefono, whatsapp, correo);
+        
+        if (dao.Create(cliente)) {
+            JOptionPane.showMessageDialog(this, "Éxito");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     /**
@@ -250,9 +266,9 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondoVerde;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextFieldCorreo;
-    private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldTel;
-    private javax.swing.JTextField jTextFieldWhats;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtWhatsapp;
     // End of variables declaration//GEN-END:variables
 }
