@@ -3,16 +3,12 @@ package Entidades;
 import clases.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author brian
  */
 public class EntidadMedidas {
-
-    Conexion c = new Conexion();
 
     private int id;
     private float busto;
@@ -36,9 +32,9 @@ public class EntidadMedidas {
         this.bocaManga = bocaManga;
     }
 
-    public boolean create() {
+    public boolean create(Conexion c) {
         try {
-            String sql = "INSERT INTO venta (ID, precio, fecha, Descuento_ID, Vendedor_ID, Usuario_ID) values (?,?,?,?,?,?)";
+            String sql = "INSERT INTO venta (id, busto, cintura, talle, largoFalda, cadera, espalda, largoManga, bocaManga) values (?,?,?,?,?,?)";
             PreparedStatement ps = c.conectar().prepareStatement(sql);
             ps.setInt(1, this.id);
             ps.setFloat(2, this.busto);

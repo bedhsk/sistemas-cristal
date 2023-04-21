@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package clases;
+package Entidades;
+import clases.Conexion;
 import java.sql.*;  
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,20 +7,20 @@ import java.util.logging.Logger;
  *
  * @author carlo
  */
-public class Cliente {
+public class EntidadCliente {
     private String nombre;
     private String telefono;
     private String whatsapp;
     private String correo;
 
-    public Cliente(String nombre, String telefono, String whatsapp, String correo) {
+    public EntidadCliente(String nombre, String telefono, String whatsapp, String correo) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.whatsapp = whatsapp;
         this.correo = correo;
     }
     
-    public Cliente() {
+    public EntidadCliente() {
         this.nombre = "";
         this.telefono = "";
         this.whatsapp = "";
@@ -76,7 +73,7 @@ public class Cliente {
             System.out.println("Cliente " + this.nombre + " ingresado con exito.");
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EntidadCliente.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Cliente " + this.nombre + " no ingresado");
             return false;
         }
@@ -100,7 +97,7 @@ public class Cliente {
             System.out.println("Cliente " + this.nombre + " ingresado con exito.");
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EntidadCliente.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Cliente " + this.nombre + " no ingresado");
             return false;
         }
