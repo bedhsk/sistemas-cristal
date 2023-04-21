@@ -79,6 +79,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jLabelConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 150, 140));
 
         jButton1.setText("Ventas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 120, -1));
 
         jButton2.setText("Proveedores");
@@ -173,6 +178,12 @@ public class Menu extends javax.swing.JFrame {
     private void jButtonIniciar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciar1ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButtonIniciar1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Venta newframe = new Venta();
+        newframe.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

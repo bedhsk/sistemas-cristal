@@ -4,11 +4,19 @@
  */
 package Ventanas;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author jsant
  */
 public class Login extends javax.swing.JFrame {
+    
+    private ImageIcon imagen;
+    private Icon Icono;
 
     /**
      * Creates new form Login
@@ -16,6 +24,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        Ajustar(jLabelLogo, "src/Imagenes/Logo.jpeg");
     }
 
     /**
@@ -125,7 +134,18 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void Ajustar(JLabel lbl, String ruta) {
 
+        this.imagen = new ImageIcon(ruta);
+        this.Icono = new ImageIcon(this.imagen.getImage().getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_DEFAULT));
+        lbl.setIcon(this.Icono);
+        this.repaint();
+
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonIniciar;
     private javax.swing.JButton jButtonIniciar1;
