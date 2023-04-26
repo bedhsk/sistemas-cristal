@@ -4,18 +4,34 @@
  */
 package Ventanas;
 
+import Entidades.EntidadPedido;
+import clases.Conexion;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author jsant
  */
 public class PedidosVer extends javax.swing.JFrame {
-
+    private EntidadPedido pedido;
+    private Conexion conexion;
     /**
      * Creates new form PedidosVer
      */
-    public PedidosVer() {
+    public PedidosVer() throws SQLException {
+        pedido = new EntidadPedido();
+        conexion = new Conexion();
         initComponents();
         this.setLocationRelativeTo(null);
+        llenarTabla();
+    }
+    
+    public void llenarTabla() {
+        DefaultTableModel tabla = pedido.select(conexion);
+        jTable1.setModel(tabla);
     }
 
     /**
@@ -44,22 +60,22 @@ public class PedidosVer extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Clientes", "Fecha 1", "Fecha 2", "Tallado 1", "Tallado 2", "Accesorios", "Total"
+                "id", "Clientes", "Fecha 1", "Fecha 2", "Tallado 1", "Tallado 2", "Accesorios", "Total"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -133,7 +149,11 @@ public class PedidosVer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PedidosVer().setVisible(true);
+                try {
+                    new PedidosVer().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(PedidosVer.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

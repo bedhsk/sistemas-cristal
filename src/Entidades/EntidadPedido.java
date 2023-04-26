@@ -2,9 +2,11 @@ package Entidades;
 
 import clases.Conexion;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -168,6 +170,55 @@ public class EntidadPedido {
         } catch (SQLException ex) {
             Logger.getLogger(EntidadCliente.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Pedido no ingresado");
+            return false;
+        }
+    }
+    
+    public DefaultTableModel select(Conexion c) {
+        DefaultTableModel datos = new DefaultTableModel();
+        datos.addColumn("id");
+        datos.addColumn("Clientes");
+        datos.addColumn("Fecha Registro");
+        datos.addColumn("Fecha Entrega");
+        datos.addColumn("Tallado 1");
+        datos.addColumn("Tallado 2");
+        datos.addColumn("Accesorios");
+        datos.addColumn("Total");
+
+        try {
+            java.sql.Statement sql = c.conectar().createStatement();
+            ResultSet res = sql.executeQuery("SELECT pedido.id, cliente.nombre, pedido.Fecha_Entrega, pedido.Fecha_Inicial, pedido.Fecha_Tallado, pedido.Fecha_Tallado2, pedido.Accesorios, pedido.Total FROM mydb.pedido INNER JOIN mydb.cliente ON cliente.id = pedido.cliente_id;");
+
+            while (res.next()) {
+                Object[] fila = new Object[8];
+                fila[0] = res.getString("pedido.id");
+                fila[1] = res.getString("cliente.nombre");
+                fila[2] = res.getString("pedido.Fecha_Entrega");
+                fila[3] = res.getString("pedido.Fecha_Inicial");
+                fila[4] = res.getString("pedido.Fecha_Tallado");
+                fila[5] = res.getString("pedido.Fecha_Tallado2");
+                fila[6] = res.getString("pedido.Accesorios");
+                fila[7] = res.getString("pedido.Total");
+                datos.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return datos;
+    }
+
+    public boolean delete(Conexion c, int id) {
+        try {
+            String sql = "DELETE FROM Pedido WHERE ID = ?";
+            PreparedStatement ps = (PreparedStatement) c.conectar().prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.execute();
+            ps.close();
+            ps = null;
+//            c.desconectar();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Fallo al elimiar: " + ex);
             return false;
         }
     }
