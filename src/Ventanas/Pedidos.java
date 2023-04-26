@@ -77,10 +77,8 @@ public class Pedidos extends javax.swing.JFrame {
         btnHistorial = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAccesorios = new javax.swing.JTextArea();
-        jLabelFondoVerde = new javax.swing.JLabel();
-        jLabelFondoVerde2 = new javax.swing.JLabel();
-        jLabelFondoVerde1 = new javax.swing.JLabel();
         jLabelFondoVerde4 = new javax.swing.JLabel();
+        jLabelFondoVerde5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -241,18 +239,11 @@ public class Pedidos extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 500, -1, -1));
 
-        jLabelFondoVerde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoVerde.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondoVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 320, 410));
+        jLabelFondoVerde4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/3cdf85d28ce81d48caa68e3ebd91ced4.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondoVerde4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 640, 830));
 
-        jLabelFondoVerde2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoVerde.jpg"))); // NOI18N
-        jLabelFondoVerde2.setText("jLabel1");
-        getContentPane().add(jLabelFondoVerde2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 320, -1));
-
-        jLabelFondoVerde1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoVerde.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondoVerde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 410));
-
-        jLabelFondoVerde4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoVerde.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondoVerde4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 610, 410));
+        jLabelFondoVerde5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/3cdf85d28ce81d48caa68e3ebd91ced4.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondoVerde5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 830));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -369,10 +360,8 @@ public class Pedidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCadera;
     private javax.swing.JLabel jLabelCintura;
     private javax.swing.JLabel jLabelEspalda;
-    private javax.swing.JLabel jLabelFondoVerde;
-    private javax.swing.JLabel jLabelFondoVerde1;
-    private javax.swing.JLabel jLabelFondoVerde2;
     private javax.swing.JLabel jLabelFondoVerde4;
+    private javax.swing.JLabel jLabelFondoVerde5;
     private javax.swing.JLabel jLabelLargoFalda;
     private javax.swing.JLabel jLabelLargoManga;
     private javax.swing.JLabel jLabelTalle;
