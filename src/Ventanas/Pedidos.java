@@ -302,8 +302,13 @@ public class Pedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFechaEActionPerformed
 
     private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
-        PedidosVer newframe = new PedidosVer();
-        newframe.setVisible(true);
+        PedidosVer newframe;
+        try {
+            newframe = new PedidosVer();
+            newframe.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Pedidos.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnHistorialActionPerformed
 
     /**
