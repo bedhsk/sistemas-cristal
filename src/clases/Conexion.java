@@ -14,8 +14,8 @@ public class Conexion {
     String bd = "mydb";
     String url = "jdbc:mariadb://localhost:3306/" + bd;
     String user = "root";
-    String pass = "bbbbbbb7";
-    //String pass = "Kamado_Tanjiro_12";
+    //String pass = "bbbbbbb7";
+    String pass = "Kamado_Tanjiro_12";
 
     public Conexion() throws SQLException {
         cx = DriverManager.getConnection(url, user, pass);

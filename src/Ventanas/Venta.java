@@ -4,12 +4,14 @@
  */
 package Ventanas;
 
+import clases.Conexion;
+
 /**
  *
  * @author jsant
  */
 public class Venta extends javax.swing.JFrame {
-
+    private Conexion conexion;
     /**
      * Creates new form Venta
      */

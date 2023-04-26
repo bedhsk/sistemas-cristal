@@ -7,6 +7,9 @@ package Ventanas;
 import Entidades.EntidadMedidas;
 import Entidades.EntidadPedido;
 import clases.Conexion;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,12 +18,13 @@ import javax.swing.JOptionPane;
  */
 public class Pedidos extends javax.swing.JFrame {
     private EntidadPedido pedido;
+    private Conexion conexion;
     //private Conexion conexion = new Conexion();
     /**
      * Creates new form Pedidos
      */
-    public Pedidos() {
-        
+    public Pedidos() throws SQLException {
+        conexion = new Conexion();
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -55,8 +59,8 @@ public class Pedidos extends javax.swing.JFrame {
         txtCintura = new javax.swing.JTextField();
         txtBusto = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButtonIniciar = new javax.swing.JButton();
-        jButtonCancelar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         txtFechaI = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -70,7 +74,7 @@ public class Pedidos extends javax.swing.JFrame {
         txtCliente = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
-        jButtonHistorial = new javax.swing.JButton();
+        btnHistorial = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAccesorios = new javax.swing.JTextArea();
         jLabelFondoVerde = new javax.swing.JLabel();
@@ -152,27 +156,27 @@ public class Pedidos extends javax.swing.JFrame {
         jButton1.setText("Confirmar");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 330, -1, -1));
 
-        jButtonIniciar.setBackground(new java.awt.Color(0, 0, 255));
-        jButtonIniciar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonIniciar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciar.setText("Guardar");
-        jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setBackground(new java.awt.Color(0, 0, 255));
+        btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 750, -1, -1));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 750, -1, -1));
 
-        jButtonCancelar.setBackground(new java.awt.Color(255, 0, 0));
-        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonCancelar.setText("Cancelar");
-        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(255, 0, 0));
+        btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelarActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 750, 90, 30));
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 750, 90, 30));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setText("Fecha Inicial");
@@ -220,16 +224,16 @@ public class Pedidos extends javax.swing.JFrame {
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 660, -1, -1));
         getContentPane().add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 660, 140, -1));
 
-        jButtonHistorial.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonHistorial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonHistorial.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonHistorial.setText("Historial");
-        jButtonHistorial.addActionListener(new java.awt.event.ActionListener() {
+        btnHistorial.setBackground(new java.awt.Color(0, 0, 0));
+        btnHistorial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
+        btnHistorial.setText("Historial");
+        btnHistorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonHistorialActionPerformed(evt);
+                btnHistorialActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 750, 90, -1));
+        getContentPane().add(btnHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 750, 90, -1));
 
         txtAccesorios.setColumns(20);
         txtAccesorios.setRows(5);
@@ -261,7 +265,7 @@ public class Pedidos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBustoActionPerformed
 
-    private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         pedido = new EntidadPedido();
         pedido.setDescripcion(txtDescripcion.getText());
         pedido.setFechaEntrega(txtFechaE.getText());
@@ -279,15 +283,15 @@ public class Pedidos extends javax.swing.JFrame {
         pedido.getMedidas().setEspalda(Float.parseFloat(txtEspalda.getText()));
         pedido.getMedidas().setLargoManga(Float.parseFloat(txtLargoM.getText()));
         pedido.getMedidas().setBocaManga(Float.parseFloat(txtBocaM.getText()));
-        //pedido.Create(conexion);
+        pedido.Create(conexion);
         JOptionPane.showMessageDialog(null, "Los datos se guardaron correctamente");
-    }//GEN-LAST:event_jButtonIniciarActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Menu newframe = new Menu();
         newframe.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonCancelarActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtFechaIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaIActionPerformed
         // TODO add your handling code here:
@@ -297,10 +301,10 @@ public class Pedidos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaEActionPerformed
 
-    private void jButtonHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHistorialActionPerformed
+    private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
         PedidosVer newframe = new PedidosVer();
         newframe.setVisible(true);
-    }//GEN-LAST:event_jButtonHistorialActionPerformed
+    }//GEN-LAST:event_btnHistorialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,16 +336,20 @@ public class Pedidos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pedidos().setVisible(true);
+                try {
+                    new Pedidos().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Pedidos.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnHistorial;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonCancelar;
-    private javax.swing.JButton jButtonHistorial;
-    private javax.swing.JButton jButtonIniciar;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;

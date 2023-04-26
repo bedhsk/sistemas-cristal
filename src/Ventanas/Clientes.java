@@ -1,6 +1,10 @@
 package Ventanas;
 
 import Entidades.*;
+import clases.Conexion;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -10,20 +14,21 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Clientes extends javax.swing.JFrame {
 
-    daoCliente dao;
-
+    private Conexion conexion;
+    private EntidadCliente cliente;
     /**
      * Creates new form Clientes
      */
-    public Clientes() {
+    public Clientes() throws SQLException {
+        cliente = new EntidadCliente();
+        conexion = new Conexion();
         initComponents();
-        dao = new daoCliente();
         this.setLocationRelativeTo(null);
         llenarTabla();
     }
 
     public void llenarTabla() {
-        DefaultTableModel tabla = dao.select();
+        DefaultTableModel tabla = cliente.select(conexion);
         jTable1.setModel(tabla);
     }
 
@@ -196,7 +201,7 @@ public class Clientes extends javax.swing.JFrame {
             int filaSeleccionada = jTable1.getSelectedRow();
             int id = Integer.parseInt((String) jTable1.getValueAt(filaSeleccionada, 0));
 
-            if (dao.delete(id)) {
+            if (cliente.delete(conexion, id)) {
                 JOptionPane.showMessageDialog(this, "Se eliminó el cliente exitosamente");
                 llenarTabla();
             } else {
@@ -209,7 +214,7 @@ public class Clientes extends javax.swing.JFrame {
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // deconectar la base de datos
-        dao.Desconectar();
+        conexion.desconectar();
 
         Menu newframe = new Menu();
         newframe.setVisible(true);
@@ -218,7 +223,7 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-        EntidadCliente cliente;
+
 
         String nombre = txtNombre.getText();
         String telefono = txtTelefono.getText();
@@ -227,7 +232,7 @@ public class Clientes extends javax.swing.JFrame {
 
         cliente = new EntidadCliente(nombre, telefono, whatsapp, correo);
 
-        if (dao.Create(cliente)) {
+        if (cliente.Create(conexion)) {
             llenarTabla();
             JOptionPane.showMessageDialog(this, "Éxito");
         } else {
@@ -265,7 +270,11 @@ public class Clientes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Clientes().setVisible(true);
+                try {
+                    new Clientes().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Clientes.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
