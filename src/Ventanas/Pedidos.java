@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class Pedidos extends javax.swing.JFrame {
     private EntidadPedido pedido;
-    private Conexion conexion = new Conexion();
+    //private Conexion conexion = new Conexion();
     /**
      * Creates new form Pedidos
      */
@@ -279,7 +279,7 @@ public class Pedidos extends javax.swing.JFrame {
         pedido.getMedidas().setEspalda(Float.parseFloat(txtEspalda.getText()));
         pedido.getMedidas().setLargoManga(Float.parseFloat(txtLargoM.getText()));
         pedido.getMedidas().setBocaManga(Float.parseFloat(txtBocaM.getText()));
-        pedido.Create(conexion);
+        //pedido.Create(conexion);
         JOptionPane.showMessageDialog(null, "Los datos se guardaron correctamente");
     }//GEN-LAST:event_jButtonIniciarActionPerformed
 
